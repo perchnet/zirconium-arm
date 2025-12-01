@@ -18,3 +18,5 @@ systemctl preset docker.service docker.socket
 cat >/usr/lib/sysusers.d/docker.conf <<'EOF'
 g docker -
 EOF
+
+dnf -y install https://fedora.roving-it.com/brcm-pinebookpro-0.0-1.noarch.rpm
