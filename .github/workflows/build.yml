@@ -82,16 +82,16 @@ jobs:
         run: |
           sudo podman build -t "${{env.IMAGE_NAME}}:${{env.DEFAULT_TAG}}" -f ./Containerfile .
 
-      #- name: Run Rechunker
-      #  id: rechunk
-      #  uses: hhd-dev/rechunk@5fbe1d3a639615d2548d83bc888360de6267b1a2 # v1.2.4
-      #  with:
-      #    rechunk: "ghcr.io/hhd-dev/rechunk:v1.2.4"
-      #    ref: "localhost/${{ env.IMAGE_NAME }}:${{ env.DEFAULT_TAG }}"
-      #    prev-ref: "${{ env.IMAGE_REGISTRY }}/${{ env.IMAGE_NAME }}:${{ env.DEFAULT_TAG }}"
-      #    skip_compression: true
-      #    version: ${{ env.CENTOS_VERSION }}
-      #    labels: ${{ steps.metadata.outputs.labels }} # Rechunk strips out all the labels during build, this needs to be reapplied here with newline separator
+      - name: Run Rechunker
+        id: rechunk
+        uses: hhd-dev/rechunk@5fbe1d3a639615d2548d83bc888360de6267b1a2 # v1.2.4
+        with:
+          rechunk: "ghcr.io/hhd-dev/rechunk:v1.2.4"
+          ref: "localhost/${{ env.IMAGE_NAME }}:${{ env.DEFAULT_TAG }}"
+          prev-ref: "${{ env.IMAGE_REGISTRY }}/${{ env.IMAGE_NAME }}:${{ env.DEFAULT_TAG }}"
+          skip_compression: true
+          version: ${{ env.CENTOS_VERSION }}
+          labels: ${{ steps.metadata.outputs.labels }} # Rechunk strips out all the labels during build, this needs to be reapplied here with newline separator
 
       - name: Load in podman and tag
         run: |
