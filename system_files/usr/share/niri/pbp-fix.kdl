@@ -1,0 +1,5 @@
+debug {
+render-drm-device "/dev/dri/card1"
+}
+
+include "/usr/share/quickshell/dms-greeter/Modules/Greetd/assets/dms-niri.kdl"
