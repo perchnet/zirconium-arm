@@ -1,5 +1,22 @@
 debug {
-render-drm-device "/dev/dri/card1"
+    render-drm-device "/dev/dri/card1"
+    keep-max-bpc-unchanged
 }
 
-include "/usr/share/quickshell/dms-greeter/Modules/Greetd/assets/dms-niri.kdl"
+hotkey-overlay {
+    skip-at-startup
+}
+
+environment {
+    DMS_RUN_GREETER "1"
+}
+
+gestures {
+    hot-corners {
+        off
+    }
+}
+
+layout {
+    background-color "#000000"
+}
