@@ -1,3 +1,5 @@
+# _Archived, because [upstream Zirconium](https://github.com/zirconium-dev/zirconium) has arm64 support._
+
 # Zirconium
 ***Do you like how I dance? I've got Zirconium pants!***
 
